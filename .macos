@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit' 
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Disable boot volume 
+sudo nvram SystemAudioVolume=" "
+
+# Set appeariance to dark mode  
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# Set default accent & highlight color
+#defaults delete NSGlobalDomain AppleAccentColor
+#defaults delete NSGlobalDomain AppleHighlightColor
+
+# Disable wallpaper tinting
+defaults write NSGlobalDomain AppleReduceDesktopTinting -bool true
+
+# Automatically show scrollbars
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
+# Possible values: `WhenScrolling`, `Automatic` and `Always`
+
+# Jump to next page in scroll bar
+defaults write NSGlobalDomain AppleScrollerPagingBehavior -bool false
+
+# Adjust toolbar title rollover delay
+defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Enable Finder Quit menu item
+defaults write com.apple.finder QuitMenuItem -bool true
+
+
