@@ -74,3 +74,13 @@ sudo softwareupdate --install-rosetta --agree-to-license
 
 # install xcode command line tools
 xcode-select --install
+
+# install homebrew
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# append Homebrew initialization to .zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>${HOME}/.zprofile
+
+# immediately evaluate the Homebrew environment settings for the current session
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
