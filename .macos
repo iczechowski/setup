@@ -44,6 +44,10 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
+# Mouse 
+defaults write -g com.apple.trackpad.scaling 2.5
+defaults write com.apple.AppleMultitouchMouse.plist MouseButtonMode TwoButton
+
 ###############################################################################
 # Dock                                                                        #
 ###############################################################################
@@ -66,6 +70,8 @@ defaults write com.apple.dock "static-only" -bool "true"
 # Enable Finder Quit menu item
 defaults write com.apple.finder QuitMenuItem -bool true
 
+
+
 # Look for updates
 sudo softwareupdate -i -a
 
@@ -87,3 +93,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # update and check the installation
 brew update && brew doctor
 export HOMEBREW_NO_INSTALL_CLEANUP=1
+
+#install brew packages
+brew install iterm2 git 
+
