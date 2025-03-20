@@ -112,4 +112,4 @@ brew install iterm2 git starship
 echo 'eval "$(starship init zsh)"' >> ${HOME}/.zprofile
 
 # install MacOS appstore installer
-brew install mac
+brew install mas
