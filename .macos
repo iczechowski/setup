@@ -107,5 +107,9 @@ brew update && brew doctor
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 #install brew packages
-brew install iterm2 git 
+brew install iterm2 git starship
 
+echo 'eval "$(starship init zsh)"' >> ${HOME}/.zprofile
+
+# install MacOS appstore installer
+brew install mac
