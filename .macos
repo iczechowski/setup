@@ -66,4 +66,11 @@ defaults write com.apple.dock "static-only" -bool "true"
 # Enable Finder Quit menu item
 defaults write com.apple.finder QuitMenuItem -bool true
 
+# Look for updates
+sudo softwareupdate -i -a
 
+# Install Rosetta
+sudo softwareupdate --install-rosetta --agree-to-license
+
+# install xcode command line tools
+xcode-select --install
