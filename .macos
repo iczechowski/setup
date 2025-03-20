@@ -84,3 +84,6 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>${HOME}/.zprofile
 # immediately evaluate the Homebrew environment settings for the current session
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# update and check the installation
+brew update && brew doctor
+export HOMEBREW_NO_INSTALL_CLEANUP=1
