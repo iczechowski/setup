@@ -45,8 +45,20 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 # Mouse 
-defaults write -g com.apple.trackpad.scaling 2.5
+defaults write NSGlobalDomain com.apple.mouse.scaling -float "2.5"
+
+# Sets the Bluetooth mouse to two-button mode
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
+# Sets the multi-touch mouse to two-button mode
 defaults write com.apple.AppleMultitouchMouse.plist MouseButtonMode TwoButton
+
+# Keyboard
+
+# Do nothing when Fn/Globe key pressed
+defaults write com.apple.HIToolbox AppleFnUsageType -int "0"
+
+# use standard Fn keys
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
 ###############################################################################
 # Dock                                                                        #
