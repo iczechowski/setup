@@ -119,7 +119,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 brew install --cask font-sauce-code-pro-nerd-font
 
 #install brew packages
-brew install git startship
+brew install git gh startship
 
 echo 'eval "$(startship init zsh)"' >> ${HOME}/.zshrc
 
@@ -134,3 +134,22 @@ brew install mas
 mas install 803453959
 # nordlayer
 mas install 1488888843
+
+# generate github ssh key
+mkdir -m 700 $HOME/.ssh 2>/dev/null
+
+ssh-keygen -t ed25519 -f $HOME/.ssh/gh_id_ed25519
+
+github_ssh_config="
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/gh_id_ed25519
+"
+echo "$github_ssh_config" >> $HOME/.ssh/config
+
+ssh-add --apple-use-keychain $HOME/.ssh/gh_id_ed25519
+
+# add the key to github configuration
+gh auth login
+gh ssh-key add $HOME/.ssh/gh_id_ed25519.pub
