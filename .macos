@@ -151,5 +151,5 @@ echo "$github_ssh_config" >> $HOME/.ssh/config
 ssh-add --apple-use-keychain $HOME/.ssh/gh_id_ed25519
 
 # add the key to github configuration
-gh auth login
+gh auth login --web --hostname github.com --git-protocol ssh --skip-ssh-key -s admin:public_key
 gh ssh-key add $HOME/.ssh/gh_id_ed25519.pub
