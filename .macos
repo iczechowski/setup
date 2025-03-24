@@ -25,7 +25,6 @@ defaults write NSGlobalDomain AppleReduceDesktopTinting -bool true
 
 # Automatically show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
-# Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Jump to next page in scroll bar
 defaults write NSGlobalDomain AppleScrollerPagingBehavior -bool false
@@ -75,14 +74,24 @@ defaults write com.apple.dock "autohide-time-modifier" -float "1"
 #Show active apps only - empties the Dock :)
 defaults write com.apple.dock "static-only" -bool "true"
 
+
 ###############################################################################
-# Finder                                                                      #
+# Finder
 ###############################################################################
 
 # Enable Finder Quit menu item
 defaults write com.apple.finder QuitMenuItem -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
+###############################################################################
+# Spotlight #
+###############################################################################
 
+# Dont create .DS_Store Files On Network Or USB Volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Install software 
 
 # Look for updates
 sudo softwareupdate -i -a
@@ -106,10 +115,22 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update && brew doctor
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
+#install font for starship
+brew install --cask font-sauce-code-pro-nerd-font
+
 #install brew packages
-brew install iterm2 git starship
+brew install git starship
 
 echo 'eval "$(starship init zsh)"' >> ${HOME}/.zprofile
 
-# install MacOS appstore installer
+brew install --cask iterm2 mitmproxy 1password arc todoist whatsapp autodesk-fusion spotify loop
+
+brew install --cask nikitabobko/tap/aerospace
+ 
+# install Mac App Store command-line interface
 brew install mas
+
+# slack
+mas install 803453959
+# nordlayer
+mas install 1488888843
