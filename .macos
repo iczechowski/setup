@@ -120,12 +120,14 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 brew install --cask font-sauce-code-pro-nerd-font
 
 #install brew packages
-brew install git gh nvm startship opentofu
+brew install git gh glab nvm startship opentofu
 
 echo 'eval "$(starship init zsh)"' >> ${HOME}/.zshrc
 
-brew install --cask iterm2 visual-studio-code mitmproxy 1password arc todoist whatsapp autodesk-fusion spotify loop obsidian drawio
+brew install --cask iterm2 mitmproxy 1password arc todoist whatsapp autodesk-fusion spotify loop obsidian drawio
 
+# IDE's
+brew install --cask visual-studio-code android-studio
 
 brew install --cask nikitabobko/tap/aerospace
 
