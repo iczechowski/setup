@@ -124,7 +124,7 @@ brew install git gh glab nvm startship opentofu
 
 echo 'eval "$(starship init zsh)"' >> ${HOME}/.zshrc
 
-brew install --cask iterm2 mitmproxy 1password arc todoist whatsapp autodesk-fusion spotify loop obsidian drawio
+brew install --cask iterm2 mitmproxy 1password arc todoist whatsapp autodesk-fusion spotify loop obsidian drawio bambu-studio
 
 # IDE's
 brew install --cask visual-studio-code android-studio
@@ -139,6 +139,9 @@ code --install-extension gamunu.opentofu
 # install Mac App Store command-line interface
 brew install mas
 
+
+# wierguard
+mas isntall 1451685025
 # slack
 mas install 803453959
 # nordlayer
